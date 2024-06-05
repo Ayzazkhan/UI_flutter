@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'Home.dart';
+
+
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ProviderScope(
+     child: MyApp()
+    ),
+  );
+
 }
 
 class MyApp extends StatelessWidget {
@@ -77,7 +86,12 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainPage()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 padding: EdgeInsets.symmetric(horizontal: 130, vertical: 15),
